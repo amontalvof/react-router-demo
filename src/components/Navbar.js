@@ -1,10 +1,21 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
+    const navLinkStyles = ({ isActive }) => {
+        return {
+            textDecoration: isActive ? 'none' : 'underline',
+            fontWeight: isActive ? 'bold' : 'normal',
+        };
+    };
+
     return (
         <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
+            <NavLink to="/" style={navLinkStyles}>
+                Home
+            </NavLink>
+            <NavLink to="/about" style={navLinkStyles}>
+                About
+            </NavLink>
         </nav>
     );
 };
